@@ -30,6 +30,12 @@ const manuales  = {
             "url" : 'https://docs.google.com/presentation/d/1v8LjvzaJVrzTUrp3jUhqi79V3jjB4E90blN_RDNsxIo/edit?usp=sharing',
             "imagen" : "Git_logo_PNG2.png",
             "categoria" : "3"
+        },
+        {
+            "materia" : "GIT",
+            "url" : 'https://docs.google.com/presentation/d/1v8LjvzaJVrzTUrp3jUhqi79V3jjB4E90blN_RDNsxIo/edit?usp=sharing',
+            "imagen" : "Git_logo_PNG2.png",
+            "categoria" : "3"
         }
 
 
