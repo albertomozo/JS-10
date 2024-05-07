@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="assets/css/estilo.min.css" rel="stylesheet">
+    <link href="assets/css/estilo.css" rel="stylesheet">
     <title>Cursos</title>
 </head>
 <body>
@@ -16,12 +16,23 @@
     <nav id="categorias"></nav>
     <!-- lista de materias  -->
     <div id="contenido"></div>
+    <!-- Carrito -->
+    <aside class="col-sm-4">
+        <h2>Carrito</h2>
+        <!-- Elementos del carrito -->
+        <ul id="carrito" class="list-group"></ul>
+        <hr>
+        <!-- Precio total -->
+        <p class="text-right">Total: <span id="total"></span>&euro;</p>
+        <button id="boton-vaciar" class="btn btn-danger">Vaciar</button>
+    </aside>
     <!-- footer -->
     <footer id="footer"></footer>
     <!-- scripts para generar el HTML -->
     <script src="./assets/js/header.js"></script> 
     <script src="./assets/js/contenido.js"></script> 
     <script src="./assets/js/footer.js"></script> 
+    <script src="./assets/js/carrito.js"></script> 
     
 </body>
 </html>

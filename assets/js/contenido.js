@@ -1,42 +1,65 @@
+/*
+id: 1,
+nombre: 'Patata',
+precio: 1,
+imagen: 'patata.jpg'
+*/
 const manuales  = {
     materias : [
         {
+            "id" : 1,
             "materia" : "HTML",
+            "nombre" : "HTML Básico",
             "url" : 'https://docs.google.com/presentation/d/1KfPKrD9dmRxfIlOQ9hdRaeayiibZQ7jZJXq_qWlHOTA/edit?usp=sharing',
             "imagen" : "html.svg",
             "categoria" : "1",
-            "tipo" : 'drive'
+            "tipo" : 'drive',
+            "precio" : 10
         },
         {
+            "id" : 2,
             "materia" : "JS",
+            "nombre" : "JS básico",
             "url" : 'https://docs.google.com/presentation/d/1rTIUbxueAOxUOdXNKrYtGgCswSCpzSENOLpReap8E5A/edit?usp=sharing',
             "imagen" : "js.svg",
-            "categoria" : "1"
+            "categoria" : "1",
+            "precio" : 15
         },
         {
+            "id" : 3,
+            "nombre" : "SASS 1",
             "materia" : "SASS",
             "url" : 'https://docs.google.com/presentation/d/1Lr8MJz9VN-TjAu0dqOe5RsJiwO0VYG60XxWZGZLq7oo/edit?usp=sharing',
             "imagen" : "sass.svg",
             "categoria" : "1"
         },
         {
+            "id" : 4,
+            "nombre" : "PHP 1",
             "materia" : "PHP",
             "url" : 'https://docs.google.com/presentation/d/13540h_unETM2xycZFKPBPPfpwRo9UO1vdqnS2zi4gUo/edit?usp=sharing',
             "imagen" : "php.svg",
-            "categoria" : "2"
+            "categoria" : "2",
+            "precio" : 17
+
         },
         {
+            "id" : 5,
+            "nombre" : "GIT 1",
             "materia" : "GIT",
             "url" : 'https://docs.google.com/presentation/d/1v8LjvzaJVrzTUrp3jUhqi79V3jjB4E90blN_RDNsxIo/edit?usp=sharing',
             "imagen" : "Git_logo_PNG2.png",
-            "categoria" : "3"
+            "categoria" : "3",
+            "precio" : 21
         }
 
 
 
     ]
     
-}
+};
+
+const baseDeDatos = manuales.materias;
 
 const categorias = {
     categoria : [
@@ -103,6 +126,7 @@ for (let i=0;i<materias.length;i++)
     <div>
        <img src="assets/img/${materia.imagen}" class="w100por">
     </div>
+    <button onclick="anyadirProductoAlCarrito(${materia.id})">Comprar</button>
     
     </article>`
 }
