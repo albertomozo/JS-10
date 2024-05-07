@@ -31,6 +31,36 @@
   color: white;
 }
 
+#iconoCarrito {
+  position:relative;
+  width: 40px;
+  height: 40px;
+  img {
+    position : absolute;
+    bottom: 0px;
+  }
+  border: 1px solid red;
+}
+
+#numProductos {
+  position:absolute;
+  top:0;
+  right: 0;
+  border-radius:50%;
+  width: 20px;
+  height: 20px;
+  border: 2px solid black;
+  text-align: center;
+}
+
+#carritoVentana {
+  margin: auto auto;
+  width: 50%;
+
+ 
+}
+
+
 .active {
   background-color: blue;
   color: white;

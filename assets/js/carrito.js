@@ -52,7 +52,7 @@ let carrito = [];
             */
             function anyadirProductoAlCarrito(id) {
                 // Anyadimos el Nodo a nuestro carrito
-                carrito.push(id)
+                carrito.push(id);
                 // Actualizamos el carrito
                 renderizarCarrito();
                 // Actualizamos el LocalStorage
@@ -89,21 +89,22 @@ let carrito = [];
                     miBoton.textContent = 'X';
                     miBoton.style.marginLeft = '1rem';
                     miBoton.dataset.item = item;
-                    miBoton.addEventListener('click', borrarItemCarrito);
+                    miBoton.setAttribute("onClick",`borrarItemCarrito(${miItem[0].id})`); 
                     // Mezclamos nodos
                     miNodo.appendChild(miBoton);
                     DOMcarrito.appendChild(miNodo);
                 });
                 // Renderizamos el precio total en el HTML
                 DOMtotal.textContent = calcularTotal();
+                document.getElementById('numProductos').innerHTML= carrito.length;
             }
 
             /**
             * Evento para borrar un elemento del carrito
             */
-            function borrarItemCarrito(evento) {
+            function borrarItemCarrito(id) {
                 // Obtenemos el producto ID que hay en el boton pulsado
-                const id = evento.target.dataset.item;
+                //const id = evento.target.dataset.item;
                 // Borramos todos los productos
                 carrito = carrito.filter((carritoId) => {
                     return carritoId !== id;
@@ -142,6 +143,11 @@ let carrito = [];
                 localStorage.clear();
 
             }
+
+            function verCarrito(){
+                document.getElementById('carritoVentana').showModal();
+            }
+          
 
             function guardarCarritoEnLocalStorage () {
                 miLocalStorage.setItem('carrito', JSON.stringify(carrito));
