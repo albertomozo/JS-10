@@ -10,6 +10,7 @@
 <body>
           <!-- Carrito -->
           <dialog id="carritoVentana">
+            <div id="circulo_cerrar" onclick="carritoVentana.close();">X</div>
             <h2>Carrito</h2>
             <!-- Elementos del carrito -->
             <ul id="carrito" class="list-group"></ul>
@@ -22,10 +23,7 @@
     <!-- header -->
     <header id="header">
     </header>
-    <div id="iconoCarrito" onclick="verCarrito()">
-        <img src="assets/img/cart.png">
-        <span id="numProductos"></span>
-    </div>
+  
     <!-- fin header -->
     <!-- botonera de categorias-->
     <nav id="categorias"></nav>

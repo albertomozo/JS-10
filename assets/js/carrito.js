@@ -82,7 +82,20 @@ let carrito = [];
                     // Creamos el nodo del item del carrito
                     const miNodo = document.createElement('li');
                     miNodo.classList.add('list-group-item', 'text-right', 'mx-2');
-                    miNodo.textContent = `${numeroUnidadesItem} x ${miItem[0].nombre} - ${miItem[0].precio}${divisa}`;
+                    // div marco para imagen de producto
+                    const miMarco = document.createElement('div');
+                    miMarco.classList.add('carrito-marco');
+                    const miImagen = document.createElement('img');
+                    miImagen.src= `assets/img/${miItem[0].imagen}`;
+                    miMarco.appendChild(miImagen);
+                    console.log(miMarco);
+                    miNodo.appendChild(miMarco);
+                    // Contenido del producto 
+                    //Sustituye a miNodo.textContent = `${numeroUnidadesItem} x ${miItem[0].nombre} - ${miItem[0].precio}${divisa}`;
+                    // que hace que los appenchild anteriores no se vean.
+                    const contenidoProducto = document.createTextNode(`${numeroUnidadesItem} x ${miItem[0].nombre} - ${miItem[0].precio}${divisa}`);
+                    miNodo.appendChild(contenidoProducto);
+                    //miNodo.textContent = `${numeroUnidadesItem} x ${miItem[0].nombre} - ${miItem[0].precio}${divisa}`;
                     // Boton de borrar
                     const miBoton = document.createElement('button');
                     miBoton.classList.add('btn', 'btn-danger', 'mx-5');
@@ -91,6 +104,7 @@ let carrito = [];
                     miBoton.dataset.item = item;
                     miBoton.setAttribute("onClick",`borrarItemCarrito(${miItem[0].id})`); 
                     // Mezclamos nodos
+                   
                     miNodo.appendChild(miBoton);
                     DOMcarrito.appendChild(miNodo);
                 });
