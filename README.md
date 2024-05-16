@@ -1,10 +1,11 @@
 # JS-10
 Este repositorio, va a ser desarrollado en los curos de FRONT. 
 Tiene asociada la siguiente documentación
-https://docs.google.com/presentation/d/1tXUKUEa3w_v5qbha1FpAXqb702XYLhdiYFYOWrJVNkA/edit?usp=sharing
+
 que se ira actualizando.
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/7cc008a3-1673-42a5-978b-237052ad56fb/deploy-status)](https://app.netlify.com/sites/elaborate-praline-af3569/deploys)
+https://docs.google.com/presentation/d/13etdGEh2UU89Al2we4YQgIwX5m5M8MzrAdtCjhg-PUs/edit#slide=id.g2dda918c493_0_19
+
 
 Version Actual v1.0
 

@@ -161,6 +161,8 @@ let carrito = [];
             function verCarrito(){
                 document.getElementById('carritoVentana').showModal();
             }
+
+            
           
 
             function guardarCarritoEnLocalStorage () {
