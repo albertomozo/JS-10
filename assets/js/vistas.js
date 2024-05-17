@@ -3,20 +3,20 @@
 let materias = manuales.materias;  // array con las materias 
 let categoriasLista = categorias.categoria; // array con las categorias
 
-/* pagina de inicio categorias */
+/* visualizacion de categorias en section */
 
 function verCategorias()
 {
-    let categoriasHtml = '';
+    let categoriasHtml = '<section id="seccion-categorias">';
     for (let i=0;i<categoriasLista.length;i++){
         let categoria = categoriasLista[i];
-        categoriasHtml += `<p id="btn_${categoria.nombre}" class="cate"><a href="index.html?categoriaid=${categoria.id}">${categoria.nombre} - ${categoria.id} <img src="./${categoria.icono}"></a></p>` ;
+        categoriasHtml += `<article class="item-categoria"><h2 id="btn_${categoria.nombre}" class="cate"><a href="index.html?categoriaid=${categoria.id}">${categoria.nombre} - ${categoria.id} <img src="./${categoria.icono}"></a></h2>
+        <p>${categoria.descripcion}</p>
+        </article>` ;
     }
-    categoriasHtml += '<p>Todos</p>';
-    categoriasHtml += '';
+    categoriasHtml += '<articleclass="item-categoria"><h2>Todos</h2></article>';
+    categoriasHtml += '</section>';
     return categoriasHtml;
-
-/* asignacion de codigo a sus capas DIV */
 
 }
 

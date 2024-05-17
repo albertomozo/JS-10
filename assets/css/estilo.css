@@ -112,5 +112,20 @@ header {
 }
 
  
+#seccion-categorias{
+  display:flex;
+  flex-wrap : wrap;
+  .item-categoria{
+    width: 25%;
+    h2 {
+      text-align: center;
+    }
+    img {
+      width: 100%;
+    }
+    a {
+      text-decoration: none;
+    }
+  }
+}
 
-/*# sourceMappingURL=estilo.css.map */

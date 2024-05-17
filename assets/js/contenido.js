@@ -31,7 +31,8 @@ const manuales  = {
             "materia" : "SASS",
             "url" : 'https://docs.google.com/presentation/d/1Lr8MJz9VN-TjAu0dqOe5RsJiwO0VYG60XxWZGZLq7oo/edit?usp=sharing',
             "imagen" : "sass.svg",
-            "categoria" : "1"
+            "categoria" : "1",
+            "precio" : 13
         },
         {
             "id" : 4,
@@ -141,8 +142,10 @@ for (let i=0;i<materias.length;i++)
     <div >
        <img src="assets/img/${materia.imagen}" class="w100por">
     </div>
-    <button onclick="anyadirProductoAlCarrito(${materia.id})">Comprar</button>
-    
+    <div class="page-wrapper">
+        <button id="addtocart" onclick="anyadirProductoAlCarrito(${materia.id})" class="iden-${materia.id}">Comprar<span class="cart-item"></span></button>
+
+    </div>
     </article>`
 }
 
@@ -150,10 +153,17 @@ for (let i=0;i<materias.length;i++)
 document.querySelector('#categorias').innerHTML = categoriasHtml;
 document.getElementById("contenido").innerHTML= materiasHtml;
 
-/* recepcion de querystring */
+/* recepcion de querystring 
+En la url en podemos recibir parametros 
+/index.html?categoriaid=2
+
+
+*/
+
 /* const query = location.href.split('?')[1].split('&')[0].split('=')[1];
 console.log(query); */
 const urlParams = new URLSearchParams(window.location.search);
+console.log(urlParams);
 const categoriaId = urlParams.get('categoriaid');
 console.log(categoriaId);
 if (categoriaId >0) {categoriaActivar(categoriaId) }

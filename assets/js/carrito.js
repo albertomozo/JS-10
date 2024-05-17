@@ -57,6 +57,22 @@ let carrito = [];
                 renderizarCarrito();
                 // Actualizamos el LocalStorage
                 guardarCarritoEnLocalStorage();
+                // efecto 
+                //tenemos que identificar cada boton el id 
+                const button=document.querySelector('.iden-'+id)
+                console.log(button);
+                button.classList.add('sendtocart');
+                const newCartTotal = document.getElementById('numProductos').innerHTML= carrito.length;
+                
+                setTimeout(function(){
+                    button.classList.add('sendtocart');
+                    cart.classList.add('shake');
+                    cart.setAttribute('data-totalitems',newCartTotal);
+                
+                    setTimeout(function(){
+                        button.classList.remove('sendtocart');
+                    },500)
+                },1000)
             }
 
             /**
@@ -111,6 +127,7 @@ let carrito = [];
                 // Renderizamos el precio total en el HTML
                 DOMtotal.textContent = calcularTotal();
                 document.getElementById('numProductos').innerHTML= carrito.length;
+                cart.setAttribute('data-totalitems',carrito.length);
             }
 
             /**
