@@ -52,10 +52,23 @@
     <!-- fin Carrito -->
     <!-- scripts para generar el HTML -->
     <script src="./assets/js/header.js"></script> 
-    <script src="./assets/js/contenido.js"></script> 
+    <script src="./assets/js/datos.js"></script> 
+    <script src="./assets/js/vistas.js"></script> 
     <script src="./assets/js/footer.js"></script> 
     <script src="./assets/js/carrito.js"></script> 
     <script src="./assets/js/buscador.js"></script> 
+    <script>
+        document.querySelector('#categorias').innerHTML = botoneraCategorias();
+        document.getElementById("contenido").innerHTML= seccionMaterias();
+        /* const query = location.href.split('?')[1].split('&')[0].split('=')[1];
+        console.log(query); */
+        const urlParams = new URLSearchParams(window.location.search);
+        console.log(urlParams);
+        const categoriaId = urlParams.get('categoriaid');
+        console.log(categoriaId);
+        if (categoriaId >0) {categoriaActivar(categoriaId) }
+        categoriasListeners()      
+    </script>
     
 </body>
 </html>

@@ -56,6 +56,17 @@ const manuales  = {
             "categoria" : "3",
             "precio" : 21
         }
+        ,
+        {
+            "id" : 7,
+            "nombre" : "Introducción a la programación",
+            "materia" : "PROGRAMACION",
+            "url" : 'https://docs.google.com/presentation/d/1aROfBbbREKcBomYTxCqR41YfFoJGpfrRsuevn5tVs7o/edit#slide=id.p',
+            "imagen" : "programacion.png",
+            "categoria" : "5",
+            "precio" : 12
+        }
+
 
 
 
@@ -93,9 +104,9 @@ const categorias = {
         },
         {
             id : 5,
-            nombre : "Ofimática",
+            nombre : "Otros",
             icono :"assets/img/categorias/ofimatica.svg",
-            descripcion : "Informatica para la oficina, procesador, hojas de calculo, .."
+            descripcion : "Informatica básica, programación, Sistemas, Ofimática, .."
         }
     ]
 }
