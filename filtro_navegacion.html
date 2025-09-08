@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Navegación y Filtrado</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .navigation {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .nav-btn {
+            padding: 12px 25px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50px;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-btn.active {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            border-color: #ff6b6b;
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(255, 107, 107, 0.4);
+        }
+
+        .articles-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .materias {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .materias:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .materias.hidden {
+            display: none;
+            /* visibility:hidden; */
+           /*  opacity: 0.2; */
+
+        }
+
+        .materias h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 8px;
+        }
+
+        .materias p {
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .frontend {
+            border-left: 5px solid #3498db;
+        }
+
+        .frontend .tag {
+            background: linear-gradient(45deg, #3498db, #2980b9);
+            color: white;
+        }
+
+        .back {
+            border-left: 5px solid #e74c3c;
+        }
+
+        .back .tag {
+            background: linear-gradient(45deg, #e74c3c, #c0392b);
+            color: white;
+        }
+
+        .herramientas {
+            border-left: 5px solid #f39c12;
+        }
+
+        .herramientas .tag {
+            background: linear-gradient(45deg, #f39c12, #e67e22);
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .navigation {
+                gap: 10px;
+            }
+            
+            .nav-btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Portfolio de Desarrollo</h1>
+        
+        <nav class="navigation">
+            <button class="nav-btn active" id="todos" onclick="filtrarArticulos('todos')">Todos</button>
+            <button class="nav-btn" id="frontend" onclick="filtrarArticulos('frontend')">Frontend</button>
+            <button class="nav-btn" id="back" onclick="filtrarArticulos('back')">Backend</button>
+            <button class="nav-btn" id="herramientas" onclick="filtrarArticulos('herramientas')">Herramientas</button>
+        </nav>
+
+        <div class="articles-container">
+            <article class="materias frontend">
+                <h3>React Avanzado</h3>
+                <p>Desarrollo de aplicaciones complejas con React, incluyendo hooks personalizados, context API y optimización de rendimiento.</p>
+                <span class="tag">Frontend</span>
+            </article>
+
+            <article class="materias frontend">
+                <h3>Vue.js 3</h3>
+                <p>Creación de interfaces reactivas con la última versión de Vue.js, composition API y TypeScript.</p>
+                <span class="tag">Frontend</span>
+            </article>
+
+            <article class="materias back">
+                <h3>Node.js & Express</h3>
+                <p>Desarrollo de APIs RESTful robustas y escalables con Node.js, Express y middlewares personalizados.</p>
+                <span class="tag">Backend</span>
+            </article>
+
+            <article class="materias back">
+                <h3>Bases de Datos MongoDB</h3>
+                <p>Diseño y optimización de bases de datos NoSQL con MongoDB, agregaciones y índices avanzados.</p>
+                <span class="tag">Backend</span>
+            </article>
+
+            <article class="materias herramientas">
+                <h3>Docker & Kubernetes</h3>
+                <p>Containerización y orquestación de aplicaciones para entornos de producción escalables.</p>
+                <span class="tag">Herramientas</span>
+            </article>
+
+            <article class="materias herramientas">
+                <h3>Git & CI/CD</h3>
+                <p>Control de versiones avanzado y pipelines de integración continua con GitHub Actions.</p>
+                <span class="tag">Herramientas</span>
+            </article>
+
+            <article class="materias frontend">
+                <h3>CSS Grid & Flexbox</h3>
+                <p>Layouts modernos y responsivos utilizando las últimas técnicas de CSS Grid y Flexbox.</p>
+                <span class="tag">Frontend</span>
+            </article>
+
+            <article class="materias back">
+                <h3>Python Django</h3>
+                <p>Desarrollo web full-stack con Django, incluyendo ORM, autenticación y despliegue en producción.</p>
+                <span class="tag">Backend</span>
+            </article>
+        </div>
+    </div>
+
+    <script>
+ 
+       function filtrarArticulos(categoria) {
+            // Remover clase active de todos los botones
+            const botones = document.querySelectorAll('.nav-btn');
+            botones.forEach(btn => btn.classList.remove('active'));
+            
+            // Agregar clase active al botón clickeado
+            //event.target.classList.add('active');
+            document.getElementById(categoria).classList.add('active');
+            
+            // Obtener todos los artículos
+            const articulos = document.querySelectorAll('.materias');
+            
+            // Mostrar u ocultar artículos según la categoría
+            articulos.forEach(articulo => {articulo.classList.add('hidden');})
+
+            articulos.forEach(articulo => {
+                if (categoria === 'todos') {
+                    articulo.classList.remove('hidden');
+                } else {
+                    if (articulo.classList.contains(categoria)) {
+                        articulo.classList.remove('hidden');
+                    }
+                }
+            });
+        }
+
+    </script>
+</body>
+</html>

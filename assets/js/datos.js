@@ -65,6 +65,15 @@ const manuales  = {
             "imagen" : "programacion.png",
             "categoria" : "5",
             "precio" : 12
+        },
+        {
+            "id" : 8,
+            "nombre" : "Postgres",
+            "materia" : "BD",
+            "url" : 'https://docs.google.com/presentation/d/1AQjwhDVbJLop8CXTaiO7Zpbz0u1aFJGyBqUODDPr0k4/edit?usp=sharing',
+            "imagen" : "programacion.png",
+            "categoria" : "2",
+            "precio" : 65
         }
 
 

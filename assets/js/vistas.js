@@ -65,7 +65,7 @@ function categoriaActivar(categoriaid) {
     } else {
         /* quitamos visibilidad a todos los elementos de contenido */
         materias = document.querySelectorAll('.materias');
-        materias.forEach(function (element) {
+        materias.forEach(element => {
             console.log(element);
             element.style.visibility = 'hidden';
         });
